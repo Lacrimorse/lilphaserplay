@@ -7,6 +7,20 @@
         
         <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
         
+        <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyAGleQpwdEB1NImI8tIe6VHCCOAn2WER7w",
+            authDomain: "phase-demo-game.firebaseapp.com",
+            databaseURL: "https://phase-demo-game.firebaseio.com",
+            storageBucket: "phase-demo-game.appspot.com",
+            messagingSenderId: "555304098534"
+          };
+          firebase.initializeApp(config);
+        </script>
+        
+        <!--this bower stuff didn't really work out (the tutorial way is probably outdated) <script src="bower_components/firebase/firebase.js"></script>-->
         <script src="lib/phaser.min.js"></script>
         <script src="state0.js"></script>
         <script src="state1.js"></script>
