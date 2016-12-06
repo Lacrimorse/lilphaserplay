@@ -11,15 +11,26 @@ demo.state0.prototype = {
     },
     
     create: function(){
+        //physics have to be first in create
+        game.physics.startSystem(Phaser.Physics.ARCADE);
         game.stage.backgroundColor = "#eeff22";
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        //setting the world's boundaries
+        game.world.setBounds(0, 0, 1400, 800);
         //why does this go here instead of update when it is a listener
         addAllChangeStateEventListeners();
         //menuBackground = game.add.image("menu_background");
         //menuBackground.width = window.width;
         //menuBackground.height = window.height;
+        var menuBackground = game.add.sprite(0, 0, "menu_background");
         lilboy = game.add.sprite(600, 400, "lilboy");
         lilboy.anchor.setTo(0.5, 0.5);
+        
+        game.camera.follow(lilboy);
+        game.camera.deadzone = new Phaser.Rectangle(300, 200, 700, 600);
+        
+        game.physics.enable(lilboy);
+        lilboy.body.collideWorldBounds = true;
     },
     
     update: function(){
