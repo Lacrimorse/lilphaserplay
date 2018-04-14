@@ -25,13 +25,9 @@ demo.state9.prototype = {
             highscoreText[i] = game.add.text(300, (i+1)*55, highscore[i], {fontSize: "35px"});
         }
         
-        //his trick, don't understand
         var updateHighscore = this.updateHighscore;
-        //snapshot is a firebase terminus technicus 
-        
         
         firebaseRef.on("value", function(snapshot) {
-            //this is very sensitive, we need to assign snapshot.val() to a variable here
             snapval = snapshot.val();
             updateHighscore(snapval.highscore);
         });
@@ -39,11 +35,9 @@ demo.state9.prototype = {
         //buttons
         game.add.button(800, 400, "button1", function() {
             var randomScore = Math.round(Math.random()*100);
-            //why am i using push
             snapval.highscore.push(randomScore);
             //sorting and cutting first ten
             snapval.highscore = snapval.highscore.sort( function(a,b) {
-                //for some reason b-a is from the greatest to lowest and a-b is the opposite
                 return b-a;
                 //slice includes the first parameter, but excludes the second one
             }).slice(0, 10);
