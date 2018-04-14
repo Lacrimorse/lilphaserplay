@@ -17,7 +17,6 @@ demo.state0.prototype = {
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         //setting the world's boundaries
         game.world.setBounds(0, 0, 1400, 800);
-        //why does this go here instead of update when it is a listener
         addAllChangeStateEventListeners();
         //menuBackground = game.add.image("menu_background");
         //menuBackground.width = window.width;
