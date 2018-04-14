@@ -28,7 +28,6 @@ demo.state2.prototype = {
         for (var i = 0; i < 36; i++){
             enemies.create(i*40+10,i*5+10, "enemy");
         }
-        //why are these parameters in strings
         enemies.setAll("scale.x", 0.3);
         enemies.setAll("scale.y", 0.3);
     },
@@ -40,7 +39,6 @@ demo.state2.prototype = {
         }
         game.physics.arcade.overlap(bullets, enemies, this.hitEnemy);
     },
-    //why does this go into prototype
     fire: function(){
         //game.time.now is how much time has passed since the start of the game in miliseconds
         if (game.time.now > nextFireTime) {
@@ -53,7 +51,6 @@ demo.state2.prototype = {
             someBullet.rotation = game.physics.arcade.angleToPointer(someBullet);
         }
     },
-    //i don't know why i don't pass these parameters though
     hitEnemy: function(a,b){
         a.kill();
         b.kill();
